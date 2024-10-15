@@ -31,48 +31,48 @@ public static class UIModder
     /// Creates a RectTransform with default options
     /// </summary>
     public static RectTransform Create() => Create(new RectCreationOptions());
+}
+
+/// <summary>
+/// Contains TMP_FontAsset objects
+/// </summary>
+public class FontStorage
+{
+    /// <summary> Pixelated Blasphemous font </summary>
+    public TMP_FontAsset Blasphemous { get; private set; }
+
+    /// <summary> Standard Arial font </summary>
+    public TMP_FontAsset Arial { get; private set; }
 
     /// <summary>
-    /// Contains TMP_FontAsset objects
+    /// Locates and stores font objects
     /// </summary>
-    public class FontStorage
+    internal void Initialize()
     {
-        /// <summary> Pixelated Blasphemous font </summary>
-        public TMP_FontAsset Blasphemous { get; private set; }
-
-        /// <summary> Standard Arial font </summary>
-        public TMP_FontAsset Arial { get; private set; }
-
-        /// <summary>
-        /// Locates and stores font objects
-        /// </summary>
-        internal void Initialize()
-        {
-            Blasphemous = Object.FindObjectOfType<TextMeshProUGUI>()?.font;
-            Arial = TMP_FontAsset.CreateFontAsset(Resources.GetBuiltinResource<Font>("Arial.ttf"));
-        }
+        Blasphemous = Object.FindObjectOfType<TextMeshProUGUI>()?.font;
+        Arial = TMP_FontAsset.CreateFontAsset(Resources.GetBuiltinResource<Font>("Arial.ttf"));
     }
+}
+
+/// <summary>
+/// Contains RectTransform objects
+/// </summary>
+public class ParentStorage
+{
+    /// <summary> Parent of all UI </summary>
+    public Transform Canvas { get; private set; }
+
+    /// <summary> Parent of the main menu UI </summary>
+    public Transform MainMenu => Canvas?.Find("Interfaces/MainMenuWindow_prefab(Clone)");
+
+    /// <summary> Parent of the game logic UI </summary>
+    public Transform GameLogic => Canvas?.Find("InGame/InGameWindow_prefab(Clone)");
 
     /// <summary>
-    /// Contains RectTransform objects
+    /// Locates and stores transform objects
     /// </summary>
-    public class ParentStorage
+    internal void Initialize()
     {
-        /// <summary> Parent of all UI </summary>
-        public Transform Canvas { get; private set; }
-
-        /// <summary> Parent of the main menu UI </summary>
-        public Transform MainMenu => Canvas?.Find("Interfaces/MainMenuWindow_prefab(Clone)");
-
-        /// <summary> Parent of the game logic UI </summary>
-        public Transform GameLogic => Canvas?.Find("InGame/InGameWindow_prefab(Clone)");
-
-        /// <summary>
-        /// Locates and stores transform objects
-        /// </summary>
-        internal void Initialize()
-        {
-            Canvas = Object.FindObjectOfType<CanvasScaler>()?.transform;
-        }
+        Canvas = Object.FindObjectOfType<CanvasScaler>()?.transform;
     }
 }
