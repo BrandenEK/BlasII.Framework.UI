@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
 
     <Title>UI Framework</Title>
     <Product>UI Framework</Product>
