@@ -8,7 +8,7 @@ namespace BlasII.Framework.UI;
 /// </summary>
 public class TextCreationOptions
 {
-    /// <summary> Default: Centered </summary>
+    /// <summary> Default: Center </summary>
     public TextAlignmentOptions Alignment { get; init; } = TextAlignmentOptions.Center;
 
     /// <summary> Default: White </summary>
@@ -28,4 +28,7 @@ public class TextCreationOptions
 
     /// <summary> Default: false </summary>
     public bool WordWrap { get; init; } = false;
+
+    /// <summary> Default: Overflow </summary>
+    public TextOverflowModes OverflowMode { get; init; } = TextOverflowModes.Overflow;
 }
