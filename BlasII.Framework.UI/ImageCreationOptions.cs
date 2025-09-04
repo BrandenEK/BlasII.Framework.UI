@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace BlasII.Framework.UI;
 
@@ -12,4 +13,7 @@ public class ImageCreationOptions
 
     /// <summary> Default: null </summary>
     public Sprite Sprite { get; init; } = null;
+
+    /// <summary> Default: Simple </summary>
+    public Image.Type Type { get; init; } = Image.Type.Simple;
 }

@@ -14,7 +14,8 @@ public static class ImageExtensions
     {
         return image
             .SetColor(options.Color)
-            .SetSprite(options.Sprite);
+            .SetSprite(options.Sprite)
+            .SetType(options.Type);
     }
 
     internal static ImageCreationOptions CopyOptions(this Image image)
@@ -23,6 +24,7 @@ public static class ImageExtensions
         {
             Color = image.color,
             Sprite = image.sprite,
+            Type = image.type,
         };
     }
 
@@ -39,6 +41,13 @@ public static class ImageExtensions
     public static Image SetSprite(this Image image, Sprite sprite)
     {
         image.sprite = sprite;
+        return image;
+    }
+
+    /// <summary> Updates the type property </summary>
+    public static Image SetType(this Image image, Image.Type type)
+    {
+        image.type = type;
         return image;
     }
 }
