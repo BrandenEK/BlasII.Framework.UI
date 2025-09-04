@@ -20,7 +20,8 @@ public static class TextExtensions
             .SetFont(options.Font)
             .SetFontSize(options.FontSize)
             .SetUseRichText(options.UseRichText)
-            .SetWordWrap(options.WordWrap);
+            .SetWordWrap(options.WordWrap)
+            .SetOverflowMode(options.OverflowMode);
     }
 
     internal static TextCreationOptions CopyOptions(this TextMeshProUGUI text)
@@ -34,6 +35,7 @@ public static class TextExtensions
             FontSize = text.fontSize,
             UseRichText = text.richText,
             WordWrap = text.enableWordWrapping,
+            OverflowMode = text.overflowMode,
         };
     }
 
@@ -85,6 +87,13 @@ public static class TextExtensions
     public static TextMeshProUGUI SetWordWrap(this TextMeshProUGUI text, bool wordWrap)
     {
         text.enableWordWrapping = wordWrap;
+        return text;
+    }
+
+    /// <summary> Updates the overflowMode property </summary>
+    public static TextMeshProUGUI SetOverflowMode(this TextMeshProUGUI text, TextOverflowModes overflowMode)
+    {
+        text.overflowMode = overflowMode;
         return text;
     }
 
