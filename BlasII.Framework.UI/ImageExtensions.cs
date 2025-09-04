@@ -12,6 +12,8 @@ public static class ImageExtensions
 
     internal static Image ApplyOptions(this Image image, ImageCreationOptions options)
     {
+        image.pixelsPerUnitMultiplier = 3;
+
         return image
             .SetColor(options.Color)
             .SetSprite(options.Sprite)
